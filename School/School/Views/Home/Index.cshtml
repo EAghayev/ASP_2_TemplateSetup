@@ -1,0 +1,88 @@
+﻿@using School.ViewModels;
+@model HomeViewModel
+@{
+    ViewData["Title"] = "Index";
+    int counter = 0;
+
+    
+}
+
+<h1>Index</h1>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-8 mx-auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Student count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Faculty fc in Model.Faculties)
+                    {
+                    <tr>
+                        <td>@fc.Id</td>
+                        <td>@fc.Name</td>
+                        <td>@fc.StudentCount</td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Group group in Model.Groups)
+                    {
+                        <tr>
+                            <td>@group.Id</td>
+                            <td>@group.Name</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-8 mx-auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">FullName</th>
+                        <th scope="col">GroupNo</th>
+                        <th scope="col">TotalPoint</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (Student item in Model.Students)
+                    {
+                        counter++;
+                        <tr>
+                            <th scope="row">@counter</th>
+                            <td>@item.Id</td>
+                            <td style="color:@(item.TotalPoint<51?"red":"black")">@item.Name @item.Surname</td>
+                            <td>@item.GroupNo</td>
+                            <td>@item.TotalPoint</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+

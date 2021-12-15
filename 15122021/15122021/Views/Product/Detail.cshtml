@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h1>Detail</h1>
+<h1>Id = @ViewBag.Id</h1>
+<h1>Name = @ViewBag.Name</h1>
+@*@if (ViewBag.Gender == false)
+{
+    <h1>Kisi</h1>
+}
+else
+{
+    <h1>Qadin</h1>
+}*@
+
+<h1>@(ViewBag.Gender==true?"Qadin":"Kisi")</h1>
+
+
